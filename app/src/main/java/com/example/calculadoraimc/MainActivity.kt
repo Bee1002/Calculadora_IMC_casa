@@ -9,15 +9,24 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.slider.Slider
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var weigtEditText: EditText
-    lateinit var heigtEditText: EditText
+    //Weight
+    lateinit var removeWeightButton: Button
+    lateinit var addWeightButton: Button
+    lateinit var weightTextView: TextView
+    //Height
+    lateinit var heightSlider: Slider
+    lateinit var heightTextView: TextView
+//Result
     lateinit var calculateButton: Button
+    lateinit var resultTextView: TextView
 
-    lateinit var  resultTextView: TextView
+    var weight = 74.0f
+    var height = 170.0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,20 +38,34 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        weigtEditText = findViewById(R.id.weightEditText)
-        heigtEditText = findViewById(R.id.heightEditText)
+        removeWeightButton = findViewById(R.id.removeWeightButton)
+        addWeightButton = findViewById(R.id.addWeightButton)
+        weightTextView = findViewById(R.id.weightTextView)
+        heightSlider = findViewById(R.id.heightSlider)
+        heightTextView = findViewById(R.id.heightTextView)
         calculateButton = findViewById(R.id.calculateButton)
         resultTextView = findViewById(R.id.resultTextView)
+
+        removeWeightButton.setOnClickListener {
+            weight --
+            weightTextView.text = "${weight.toInt()} Kg"
+        }
+        addWeightButton.setOnClickListener {
+            weight ++
+            weightTextView.text = "${weight.toInt()} Kg"
+
+        }
+        heightSlider.addOnChangeListener { slider, value, fromUser ->
+            height = value
+            heightTextView.text = "${value.toInt()} cm"
+        }
         calculateButton.setOnClickListener {
-            val weight = weigtEditText.text.toString().toFloat()
-            val height = heigtEditText.text.toString().toFloat()
             val result = weight / (height / 100).pow(2)
 
             resultTextView.text = String.format("%.2f",result)
 
-            println("Peso: $weight")
-            println("Altura: $height")
-            println("El IMC es: $result")
+
+
         }
 
     }
