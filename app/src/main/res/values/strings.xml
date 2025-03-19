@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Calculadora IMC</string>
+
+    <string name="label_weight">CWeight:</string>
+    <string name="label_height">Height=</string>
+
+    <string name="bmi_underweight">Calculadora IMC</string>
+    <string name="bmi_normal_weight">Calculadora IMC</string>
+    <string name="bmi_overweight">Calculadora IMC</string>
+    <string name="bmi_obesity">Calculadora IMC</string>
+    <string name="bmi_extreme_obesity">Calculadora IMC</string>
 </resources>

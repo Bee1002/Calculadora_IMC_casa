@@ -1,9 +1,7 @@
 package com.example.calculadoraimc
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -60,11 +58,39 @@ class MainActivity : AppCompatActivity() {
             heightTextView.text = "${value.toInt()} cm"
         }
         calculateButton.setOnClickListener {
+            var color = 0
             val result = weight / (height / 100).pow(2)
 
             resultTextView.text = String.format("%.2f",result)
+            var colorId = 0
+            var descriptionId = ""
+            when(result) {
+                in 0f..<18.5f -> {
+                   colorId =  getColor(R.color.bmi_underweight)
+                    descriptionId = getColor(R.color.bmi_underweight)
 
+                }
+                in 18.5f..<25f -> {
+                   colorId =  getColor(R.color.bmi_normal_weight)
+                    descriptionId = getColor(R.color.bmi_normal_weight)
+                }
+                in 25..<30 -> {
+                   colorId =  getColor(R.color.bmi_overweight)
+                    descriptionId = getColor(R.color.bmi_overweight)
+                }
+                in 30..<35 -> {
+                   colorId =  getColor(R.color.bmi_obesity)
+                    descriptionId = getColor(R.color.bmi_obesity)
+                }
+                else ->{
+                    colorId = getColor(R.color.bmi_extreme_obesity)
+                    descriptionId = getString(R.string.bmi_extreme_obesity)
+                }
+            }
 
+descriptionTextView.text = descriptionId
+descriptionTextView.setTextColor(colorId)
+resultTextView.setTextColor(colorId)
 
         }
 
