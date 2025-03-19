@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Peso"
+            android:text="Peso:"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -117,68 +117,6 @@
     </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!--Edad -->
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:elevation="8dp"
-        app:cardCornerRadius="16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Edad"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-
-                <Button
-                    android:id="@+id/removeWeightButton2"
-                    style="?attr/materialIconButtonFilledStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:icon="@drawable/ic_remove_24" />
-
-                <TextView
-                    android:id="@+id/weightTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="12 age"
-                    android:textAlignment="center"
-                    android:textSize="48sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/addWeightButton2"
-                    style="?attr/materialIconButtonFilledStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:icon="@drawable/ic_add_24" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-
 
 <!--Result -->
 <androidx.cardview.widget.CardView
@@ -188,7 +126,12 @@ android:layout_margin="8dp"
 android:layout_width="match_parent"
 app:cardCornerRadius="16dp" >
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:textStyle="bold">
 
     <TextView
         android:layout_width="match_parent"
@@ -197,6 +140,8 @@ app:cardCornerRadius="16dp" >
         android:text="Indice De Masa Corporal"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+
 
 <TextView
 android:id="@+id/resultTextView"
@@ -207,12 +152,15 @@ android:textSize="48sp"
 android:textStyle="bold"
 android:textAlignment="center"/>
 
+    </LinearLayout>
+
     </androidx.cardview.widget.CardView>
+
 
     <Button
         android:id="@+id/calculateButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="96dp"
         android:layout_gravity="center_horizontal"
         android:text="Calcular IMC" />
 
